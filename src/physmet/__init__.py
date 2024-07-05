@@ -30,7 +30,7 @@ def axes(
     axes: typing.Optional[typing.Iterable[AxisLike]]=None,
     **pairs: AxisLike
 ) -> Axes:
-    """Create a axes from arguments. See Notes for precedence rules.
+    """Create axes from arguments. See Notes for precedence rules.
 
     Returns
     -------
@@ -41,19 +41,20 @@ def axes(
     `ValueError`
         The given combination of arguments produced an empty axes.
     `TypeError`
-        The caller passed `shape` or `axes` as a positional argument.
+        The caller passed `shape`, `dimensions`, or `axes` as a positional
+        argument.
 
     Notes
     -----
-    - A axes initialized from only a shape will contain axis pairs in which
-      each name has the form `xi` and the corresponding sequence is a length-`i`
+    - Axes initialized from only a shape will contain axis pairs in which each
+      name has the form `xi` and the corresponding sequence is a length-`i`
       zero-based integer array, where `i` ranges from 0 to `len(shape)-1`.
-    - A axes initialized from a sequence of anonymous axes will contain
-      key-value pairs with keys constructed as if initialized from a shape, each
+    - Axes initialized from a sequence of anonymous axes will contain key-value
+      pairs with keys constructed as if initialized from a shape, each
       corresponding to an axis in the order given.
-    - Explicit dimensions will replace default axis names in a axes initialized
+    - Explicit dimensions will replace default axis names in axes initialized
       from either a shape or axes.
-    - A axes initialized from key-value pairs or from a single mapping will use
+    - Axes initialized from key-value pairs or from a single mapping will use
       each key as a dimension and the corresponding value as the axis object.
     - In case of multiple initialization styles, key-value pairs take precedence
       over a mapping, which takes precedence over axes (with or without explicit
@@ -63,7 +64,7 @@ def axes(
 
 @typing.overload
 def axes(*lengths: numbers.Integral) -> Axes:
-    """Create a axes with the given axis lengths.
+    """Create axes with the given axis lengths.
 
     Parameters
     ----------
@@ -81,7 +82,7 @@ def axes(
     shape: typing.Iterable[numbers.Integral],
     dimensions: typing.Iterable[str],
 ) -> Axes:
-    """Create a axes with the given shape.
+    """Create axes with the given shape.
 
     Parameters
     ----------
@@ -110,7 +111,7 @@ def axes(
     dimensions: typing.Iterable[str],
     axes: typing.Iterable[AxisLike],
 ) -> Axes:
-    """Create a axes from anonymous axes.
+    """Create axes from anonymous axes.
 
     Parameters
     ----------
@@ -128,15 +129,13 @@ def axes(
 
     Raises
     ------
-    `TypeError`
-        Caller passed dimensions without shape.
     `ValueError`
-        Caller passed dimensions and shape with different lengths.
+        Caller passed dimensions and axes with different lengths.
     """
 
 @typing.overload
 def axes(**pairs: AxisLike) -> Axes:
-    """Create a axes from individual dimension-axis pairs.
+    """Create axes from individual dimension-axis pairs.
 
     Parameters
     ----------
@@ -152,7 +151,7 @@ def axes(**pairs: AxisLike) -> Axes:
 
 @typing.overload
 def axes(mapping: typing.Mapping[str, AxisLike]) -> Axes:
-    """Create a axes from a mapping of dimension-axis pairs.
+    """Create axes from a mapping of dimension-axis pairs.
 
     Parameters
     ----------
