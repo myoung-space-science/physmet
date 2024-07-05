@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "physmet"
+version = "0.0.0"
+description = ""
+authors = ["Matthew Young <myoung.space.science@gmail.com>"]
+readme = "README.md"
+packages = [{include = "physmet", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aliasedkeys = "^0.1.1"
+nonstring = "^0.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
