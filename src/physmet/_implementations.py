@@ -1066,10 +1066,17 @@ def array_args(x, unit, axes, /):
         return x.data, x.unit, x.axes
     dimensions = tuple(axes or ())
     d = data.array(array_data(x), *dimensions)
-    axes = array_axes(d.shape, axes)
+    shape = d.shape
+    a = array_axes(d.shape, axes)
+    lengths = tuple(len(v) for v in a.values())
+    if any(i != j for i, j in zip(shape, lengths)):
+        raise ValueError(
+            f"Array shape {shape} is inconsistent with"
+            f" axis lengths {lengths}"
+        ) from None
     if isinstance(x, numeric.Measurement):
-        return d, x.unit, axes
-    return d, unit, axes
+        return d, x.unit, a
+    return d, unit, a
 
 
 def array_shape(x) -> typing.Tuple[int]:
