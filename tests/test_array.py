@@ -692,3 +692,11 @@ def test_string_transpose(ndarrays: support.NDArrays):
         array.transpose('x', 'z')
 
 
+def test_shape_match(ndarrays: support.NDArrays):
+    """Make sure array shape and axes are consistent."""
+    ndarray = ndarrays.xy
+    nx, ny = ndarray.shape
+    x = physmet.axis.points(range(nx+1))
+    y = physmet.axis.points(range(ny+1))
+    with pytest.raises(ValueError):
+        physmet.array(ndarray, axes={'x': x, 'y': y})
