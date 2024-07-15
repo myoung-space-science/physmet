@@ -123,6 +123,16 @@ def axis_eq(a: numeric.Axis, b) -> bool:
     return NotImplemented
 
 
+def axis_or(a: numeric.AxisType, b) -> numeric.AxisType:
+    """Called for self | other."""
+    if isinstance(b, numeric.Axis) and _same_types(a, b):
+        d = nonstring.merge(a.data, b.data)
+        if isinstance(a, _types.Coordinates):
+            return coordinates_factory(d, unit=a.unit)
+        return _get_factory(a, b)(d)
+    return NotImplemented
+
+
 def axis_str(a: numeric.Axis) -> str:
     """A simplified representation of this object."""
     return _as_string(a)
@@ -451,6 +461,17 @@ def slice2range(s: slice, /, stop: int=None) -> range:
     return range(start, stop, step)
 
 
+def _get_factory(*args):
+    """Get the appropriate object factory for `args`."""
+    if all(isinstance(arg, _types.Points) for arg in args):
+        return points_factory
+    if all(isinstance(arg, _types.Symbols) for arg in args):
+        return symbols_factory
+    if all(isinstance(arg, _types.Coordinates) for arg in args):
+        return coordinates_factory
+    return axis_factory
+
+
 AXIS_OPERATORS = {
     '__array__': numeric.operators.__array__,
     '__str__': axis_str,
@@ -460,6 +481,7 @@ AXIS_OPERATORS = {
     '__len__': axis_len,
     '__iter__': axis_iter,
     '__getitem__': axis_getitem,
+    '__or__': axis_or,
     'index': axis_index,
 }
 
