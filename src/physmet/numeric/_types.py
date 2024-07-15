@@ -159,6 +159,9 @@ class Axis(Quantity[T], base.Sequence):
     def __getitem__(self, i, /) -> typing.Self: ...
 
     @abc.abstractmethod
+    def __or__(self, other, /) -> typing.Self: ...
+
+    @abc.abstractmethod
     def index(self, *targets: T): ...
 
     @property
