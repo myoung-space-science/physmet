@@ -30,6 +30,8 @@ def test_points():
     assert points.index(10) == indexer.value(1)
     with pytest.raises(ValueError):
         points.index(0)
+    assert points | sliced == points
+    assert axis.points([0]) | axis.points([1]) == axis.points([0, 1])
 
 
 def test_symbols():
@@ -55,6 +57,9 @@ def test_symbols():
     for target, error in errors:
         with pytest.raises(error):
             symbols.index(target)
+    assert symbols | sliced == symbols
+    expected = axis.symbols(['a', 'b'])
+    assert axis.symbols(['a']) | axis.symbols(['b']) == expected
 
 
 def test_coordinates():
@@ -89,4 +94,9 @@ def test_coordinates():
     assert coordinates.withunit('cm').index(150.0) == indexer.value(2)
     measurement = measurable.measure([1.5], unit)
     assert coordinates.index(measurement) == indexer.value(2)
+    assert coordinates | sliced == coordinates
+    this = axis.coordinates([1.1], unit=unit)
+    that = axis.coordinates([2.3], unit=unit)
+    expected = axis.coordinates([1.1, 2.3], unit=unit)
+    assert this | that == expected
 
