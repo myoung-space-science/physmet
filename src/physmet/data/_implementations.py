@@ -617,7 +617,8 @@ def cumsum(x: _types.Array[numeric.RealValueType], **kwargs):
 @_types.Array.implements(numpy.transpose)
 def transpose(x: _types.Array[numeric.RealValueType], **kwargs):
     """Compute the transpose of an array and dimensions."""
-    data = x.array.transpose()
+    args = kwargs.get('axes') or ()
+    data = x.array.transpose(*args)
     axes = kwargs.get('axes')
     if axes is None:
         dimensions = x.dimensions[::-1]
