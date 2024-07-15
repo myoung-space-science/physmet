@@ -167,7 +167,18 @@ class Axes(collections.abc.Mapping, typing.Mapping[str, numeric.Axis]):
         except nonstring.MergeError as err:
             errmsg = str(err).replace('entries', 'dimensions')
             raise ValueError(errmsg) from err
-        mapping = {k: other[k] if k in other else self[k] for k in keys}
+        mapping = {}
+        for k in keys:
+            if k in self and k in other:
+                mapping[k] = self[k] | other[k]
+            elif k in self:
+                mapping[k] = self[k]
+            elif k in other:
+                mapping[k] = other[k]
+            else:
+                raise KeyError(
+                    f"The axis {k!r} is not in either set of axes"
+                ) from None
         return axes_factory(mapping)
 
     def copy(self):
