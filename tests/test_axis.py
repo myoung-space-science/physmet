@@ -5,7 +5,6 @@ import numpy
 from physmet import axis
 from physmet import indexer
 from physmet import measurable
-from physmet import measured
 
 
 def test_points():
