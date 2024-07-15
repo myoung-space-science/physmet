@@ -596,7 +596,7 @@ def test_transpose():
     for axes, dimensions in test.items():
         new = numpy.transpose(old, axes=axes)
         assert isinstance(new, physmet.Array)
-        assert numpy.array_equal(new, numpy.transpose(ndarray))
+        assert numpy.array_equal(new, numpy.transpose(ndarray, axes=axes))
         assert new.unit == metric.unit(unit)
         assert new.dimensions == data.dimensions(dimensions)
 
