@@ -2,6 +2,8 @@
 
 ## NEXT
 
+## v0.1.2 (2024-12-13)
+
 - Make `metric` explicitly accessible at package top level
 - Make `Vector` a generic type
 
