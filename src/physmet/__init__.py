@@ -2,6 +2,7 @@ import numbers
 import typing
 
 from . import axis
+from . import metric
 from .numeric import AxisLike
 from ._axes import (
     Axes,
@@ -185,6 +186,7 @@ __all__ = [
     axes,
     # Modules
     axis,
+    metric,
 ]
 
 
