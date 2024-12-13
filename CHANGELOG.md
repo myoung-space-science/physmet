@@ -2,6 +2,9 @@
 
 ## NEXT
 
+- Make `metric` explicitly accessible at package top level
+- Make `Vector` a generic type
+
 ## v0.1.1 (2024-07-15)
 
 - Fix axes-related bug in data-array transpose
