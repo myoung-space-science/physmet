@@ -1,12 +1,8 @@
 import abc
-import numbers
 import typing
 
-import nonstring
 import numpy
 import numpy.typing
-
-from .. import metric
 
 
 T = typing.TypeVar('T')
