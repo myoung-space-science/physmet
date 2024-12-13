@@ -16,6 +16,10 @@ from ._types import (
     Vector,
 )
 from ._implementations import (
+    ARRAY_OPERATORS,
+    SCALAR_OPERATORS,
+    TENSOR_OPERATORS,
+    VECTOR_OPERATORS,
     array_factory as array,
     scalar_factory as scalar,
     tensor_factory as tensor,
@@ -171,6 +175,11 @@ def axes(*args, **kwargs):
 
 
 __all__ = [
+    # Operator mappings
+    ARRAY_OPERATORS,
+    SCALAR_OPERATORS,
+    TENSOR_OPERATORS,
+    VECTOR_OPERATORS,
     # Types
     Array,
     Axes,
