@@ -51,14 +51,14 @@ class Scalar(Object[base.ScalarType], base.Scalar):
         super().__init__(data, unit)
 
 
-class Vector(Object[typing.Sequence]):
+class Vector(Object[typing.Sequence[T]]):
     """A real-valued, measurable object with 1-D data."""
 
     _FUNCTIONS = {}
 
     def __init__(
         self,
-        data: typing.Sequence,
+        data: typing.Sequence[T],
         unit: str | metric.Unit,
     ) -> None:
         array = numpy.asanyarray(data)
