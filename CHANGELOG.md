@@ -2,6 +2,8 @@
 
 ## NEXT
 
+## v0.1.3 (2024-12-13)
+
 - Make `*_OPERATORS` mappings explicitly accessible at package top level
 
 ## v0.1.2 (2024-12-13)
