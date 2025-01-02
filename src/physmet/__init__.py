@@ -4,7 +4,10 @@ import typing
 from . import axis
 from . import data
 from . import indexer
+from . import measurable
+from . import measured
 from . import metric
+from . import symbolic
 from .numeric import AxisLike
 from ._axes import (
     Axes,
@@ -199,7 +202,10 @@ __all__ = [
     axis,
     data,
     indexer,
+    measurable,
+    measured,
     metric,
+    symbolic,
 ]
 
 
