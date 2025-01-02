@@ -181,7 +181,7 @@ def isindexlike(x, /):
     if isinstance(x, numeric.Indexer):
         return True
     for f in (indexer.value, indexer.sequence):
-        with contextlib.suppress(TypeError, IndexError):
+        with contextlib.suppress(ValueError, TypeError, IndexError):
             f(x)
             return True
     return False
