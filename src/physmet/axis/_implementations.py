@@ -304,7 +304,7 @@ def coordinates_index(
     # - Create a temporary sequence with the intermediate unit. The
     #   following line casts `this` to a `numpy.ndarray` in order to force
     #   the unit update.
-    tmp = measured.sequence(numpy.array(this), unit=unit)
+    tmp = measured.sequence(numpy.array(this, ndmin=1), unit=unit)
     # - Convert the temporary array to this coordinate's unit and extract a
     #   numpy array. If the unit of `targets` is inconsistent with our unit,
     #   this is when we'll find out.
