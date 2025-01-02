@@ -2,6 +2,8 @@
 
 ## NEXT
 
+## v0.1.4 (2025-01-02)
+
 - Update exported objects
 - Check for `ValueError` in `data.isindexlike`, so that measured input returns `False`
 
