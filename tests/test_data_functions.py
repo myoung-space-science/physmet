@@ -3,6 +3,7 @@ import numpy
 import support
 from physmet import data
 from physmet import indexer
+from physmet import measured
 
 
 def test_isindexlike():
@@ -48,6 +49,8 @@ def test_isindexlike():
         ['1.0', '2'],
         ('1.0', '2'),
         numpy.array([1, 2], dtype=float),
+        measured.value(2, 'm'),
+        measured.sequence([2, 3], 'm'),
     ]
     for case in false:
         assert not data.isindexlike(case)
