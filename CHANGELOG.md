@@ -2,6 +2,9 @@
 
 ## NEXT
 
+- Add more exported objects
+- Update `Coordinates` indexing method
+
 ## v0.1.4 (2025-01-02)
 
 - Update exported objects
