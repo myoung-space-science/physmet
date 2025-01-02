@@ -2,6 +2,9 @@
 
 ## NEXT
 
+- Update exported objects
+- Check for `ValueError` in `data.isindexlike`, so that measured input returns `False`
+
 ## v0.1.3 (2024-12-13)
 
 - Make `*_OPERATORS` mappings explicitly accessible at package top level
