@@ -5,6 +5,8 @@ import numpy
 import numpy.typing
 
 from ._implementations import (
+    AxisTypeError,
+    AxisValueError,
     coordinates_factory as coordinates,
     points_factory as points,
     symbols_factory as symbols,
@@ -16,6 +18,8 @@ from ._types import (
 )
 
 __all__ = [
+    AxisTypeError,
+    AxisValueError,
     Coordinates,
     Points,
     Symbols,
