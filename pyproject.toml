@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "physmet"
-version = "0.1.4"
+version = "0.1.5"
 description = ""
 authors = ["Matthew Young <myoung.space.science@gmail.com>"]
 readme = "README.md"
