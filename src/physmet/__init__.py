@@ -2,6 +2,8 @@ import numbers
 import typing
 
 from . import axis
+from . import data
+from . import indexer
 from . import metric
 from .numeric import AxisLike
 from ._axes import (
@@ -195,6 +197,8 @@ __all__ = [
     axes,
     # Modules
     axis,
+    data,
+    indexer,
     metric,
 ]
 
